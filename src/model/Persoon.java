@@ -29,7 +29,7 @@ public class Persoon {
     }
 
     public Persoon() {
-        this("Onbekend", "Onbekend", 0);
+        this("Onbekend");
         this.personeelsNummer = aantalPersonen++;
     }
 
