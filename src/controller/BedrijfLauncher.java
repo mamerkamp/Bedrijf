@@ -10,9 +10,16 @@ public class BedrijfLauncher {
 
     public static void main(String[] args) {
 
+        String[] afdelingen = new String[4];
+        afdelingen[0] = "Uitvoering";
+        afdelingen[1] = "Support";
+        afdelingen[2] = "Management";
+        afdelingen[3] = "Documentatie";
+
         System.out.println(Persoon.aantalPersonen);
 
-        Persoon baas = new Persoon("Mark", "Den Haag", 10000);
+
+        Persoon baas = new Persoon("Mark", "Den Haag", 10000, afdelingen[2]);
         System.out.println(Persoon.aantalPersonen);
         System.out.println(baas.getPersoneelsNummer());
         Persoon medewerker = new Persoon("Caroline", "Delft", 4000);
