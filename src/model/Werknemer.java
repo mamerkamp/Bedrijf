@@ -35,7 +35,6 @@ public class Werknemer extends Persoon {
 
     @Override
     public double berekenJaarInkomen() {
-
         return heeftRechtOpBonus() ? maandSalaris * 13: maandSalaris * 12;
     }
 

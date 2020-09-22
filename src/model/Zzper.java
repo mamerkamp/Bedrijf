@@ -22,7 +22,6 @@ public class Zzper extends Persoon {
     public String toString(){
         return String.format("%s en is een zzp-er met een uurtarief van %.2f",
                 super.toString(), uurTarief);
-
     }
 
     @Override

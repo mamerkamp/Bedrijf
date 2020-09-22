@@ -25,7 +25,8 @@ public class BedrijfLauncher {
         Werknemer medewerker = new Werknemer("Caroline", "Delft", afdelingen[1], 4000.00);
         Zzper assistent = new Zzper("Klaas", "Diemen", afdelingen[3], 50.0);
 
-        assistent.huurIn(160);
+        assistent.huurIn(160); // Aantal uren dat de ZZPer heeft gewerkt.
+
         System.out.println("Het aantal personen in het bedrijf is " + Persoon.aantalPersonen);
         System.out.println();
         System.out.println(baas);
@@ -36,7 +37,5 @@ public class BedrijfLauncher {
         System.out.printf("%s verdient %.2f per jaar.\n", baas.getNaam(), baas.berekenJaarInkomen());
         System.out.printf("%s verdient %.2f per jaar.\n", medewerker.getNaam(), medewerker.berekenJaarInkomen());
         System.out.printf("%s verdient %.2f per jaar.\n", assistent.getNaam(), assistent.berekenJaarInkomen());
-
-
     }
 }
