@@ -43,7 +43,7 @@ public class Werknemer extends Persoon {
     }
 
     public String toString(){
-        return String.format("%s en is een werknemer %s recht op een bonus.",
+        return String.format("%s en is een werknemer %s recht op een bonus.\n",
                 super.toString(),
                 heeftRechtOpBonus() ? "met" : "zonder");
     }
