@@ -19,7 +19,6 @@ public class Werknemer extends Persoon {
     }
 
     public Werknemer() {
-
     }
 
     public static double getGrenswaardeBonus() {
