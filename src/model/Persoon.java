@@ -16,7 +16,6 @@ public class Persoon {
 
 
     public Persoon(String naam, String woonplaats, Afdeling afdeling) {
-//        this(naam, woonplaats, maandSalaris);
         this.naam = naam;
         this.woonplaats = woonplaats;
         this.afdeling = afdeling;
