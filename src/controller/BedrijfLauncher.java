@@ -5,8 +5,6 @@ import model.Persoon;
 import model.Werknemer;
 import model.Zzper;
 
-import java.sql.SQLOutput;
-
 
 /**
  * Author: Mark Amerkamp (markamerkamp@gmail.com)
