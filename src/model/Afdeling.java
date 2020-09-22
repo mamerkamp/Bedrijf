@@ -10,12 +10,12 @@ public class Afdeling {
     private String afdelingsPlaats;
 
     public Afdeling(String afdelingsNaam, String afdelingsPlaats) {
-        this.afdelingsNaam = "Onbekend";
-        this.afdelingsPlaats = "Onbekend";
+        this.afdelingsNaam = afdelingsNaam;
+        this.afdelingsPlaats = afdelingsPlaats;
     }
 
     public Afdeling() {
-
+        this("Onbekend", "Onbekend");
     }
 
     public String getAfdelingsNaam() {

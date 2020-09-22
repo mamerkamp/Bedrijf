@@ -21,19 +21,17 @@ public class Persoon {
         this.woonplaats = woonplaats;
         this.maandSalaris = maandSalaris;
         this.afdeling = afdeling;
-
         this.personeelsNummer = aantalPersonen++;
     }
 
     public Persoon(String naam) {
-        this(naam, "Onbekend", 0);
-        this.personeelsNummer = aantalPersonen++;
+        this(naam, "Onbekend", 0, new Afdeling());
     }
 
     public Persoon() {
         this("Onbekend");
-        this.personeelsNummer = aantalPersonen++;
     }
+
 
     public String heeftRechtOpBonus() {
         if (maandSalaris >= GRENSWAARDE_BONUS) {

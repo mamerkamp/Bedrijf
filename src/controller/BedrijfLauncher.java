@@ -1,6 +1,10 @@
 package controller;
 
+import model.Afdeling;
 import model.Persoon;
+
+import java.sql.SQLOutput;
+
 
 /**
  * Author: Mark Amerkamp (markamerkamp@gmail.com)
@@ -10,28 +14,21 @@ public class BedrijfLauncher {
 
     public static void main(String[] args) {
 
-        String[] afdelingen = new String[4];
-        afdelingen[0] = "Uitvoering";
-        afdelingen[1] = "Support";
-        afdelingen[2] = "Management";
-        afdelingen[3] = "Documentatie";
+        Afdeling[] afdelingen = new Afdeling[4];
+        afdelingen[0] = new Afdeling("Uitvoering" ,"Hilversum");
+        afdelingen[1] = new Afdeling("Support", "Amsterdam");
+        afdelingen[2] = new Afdeling("Management", "Almere");
+        afdelingen[3] = new Afdeling("Documentatie", "Gouda");
 
-        System.out.println(Persoon.aantalPersonen)
 
         Persoon baas = new Persoon("Mark", "Den Haag", 10000, afdelingen[2]);
-        System.out.println(Persoon.aantalPersonen);
-        System.out.println(baas.getPersoneelsNummer());
-        Persoon medewerker = new Persoon("Caroline", "Delft", 4000);
-        System.out.println(Persoon.aantalPersonen);
-        System.out.println(medewerker.getPersoneelsNummer());
-
+        Persoon medewerker = new Persoon("Caroline", "Delft", 4000, afdelingen[1]);
         Persoon assistent = new Persoon("Klaas");
-        Persoon manager = new Persoon();
-        System.out.println(Persoon.aantalPersonen);
 
-        System.out.printf("%s verdient %.2f en heeft %s recht op een bonus", baas.getNaam(), baas.getMaandSalaris(), baas.heeftRechtOpBonus());
-        System.out.println();
-        System.out.printf("%s verdient %.2f en heeft %s recht op een bonus", medewerker.getNaam(), medewerker.getMaandSalaris(), medewerker.heeftRechtOpBonus());
+        System.out.println("Het aantal personen in het bedrijf is " + Persoon.aantalPersonen);
+        System.out.printf("%s werkt in %s en woont in %s\n", baas.getNaam(), baas.getAfdeling().getAfdelingsPlaats(), baas.getWoonplaats());
+        System.out.printf("%s werkt op de afdeling %s en verdient %.2f", medewerker.getNaam(), medewerker.getAfdeling(), medewerker.getMaandSalaris());
+
 
     }
 }
