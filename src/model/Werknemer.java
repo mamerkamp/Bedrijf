@@ -38,11 +38,6 @@ public class Werknemer extends Persoon {
     public double berekenJaarInkomen() {
 
         return heeftRechtOpBonus() ? maandSalaris * 13: maandSalaris * 12;
-//        if (heeftRechtOpBonus()){
-//            return maandSalaris * 13;
-//        } else {
-//            return maandSalaris * 12;
-//        }
     }
 
     @Override
