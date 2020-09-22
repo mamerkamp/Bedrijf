@@ -7,41 +7,32 @@ package model;
 public class Persoon {
     final static double GRENSWAARDE_BONUS = 4500.00;
 
+    protected static String DEFAULTWAARDE_NAAM = "Onbekend";
     public static int aantalPersonen = 0;
-    private int personeelsNummer;
-    private String naam;
-    private String woonplaats;
-    private double maandSalaris;
-    private Afdeling afdeling;
+    protected int personeelsNummer;
+    protected String naam;
+    protected String woonplaats;
+    protected Afdeling afdeling;
 
 
-    public Persoon(String naam, String woonplaats, double maandSalaris, Afdeling afdeling) {
+    public Persoon(String naam, String woonplaats, Afdeling afdeling) {
 //        this(naam, woonplaats, maandSalaris);
         this.naam = naam;
         this.woonplaats = woonplaats;
-        this.maandSalaris = maandSalaris;
         this.afdeling = afdeling;
         this.personeelsNummer = aantalPersonen++;
     }
 
     public Persoon(String naam) {
-        this(naam, "Onbekend", 0, new Afdeling());
+        this(naam, "Onbekend", new Afdeling());
     }
 
     public Persoon() {
-        this("Onbekend");
-    }
-
-
-    public String heeftRechtOpBonus() {
-        if (maandSalaris >= GRENSWAARDE_BONUS) {
-            return "wel";
-        }
-        return "geen";
+        this(DEFAULTWAARDE_NAAM);
     }
 
     public double berekenJaarInkomen() {
-        return maandSalaris * 12;
+        return 0;
     }
 
     public int getPersoneelsNummer() {
@@ -68,13 +59,6 @@ public class Persoon {
         this.woonplaats = woonplaats;
     }
 
-    public double getMaandSalaris() {
-        return maandSalaris;
-    }
-
-    public void setMaandSalaris(double maandSalaris) {
-        this.maandSalaris = maandSalaris;
-    }
 
     public Afdeling getAfdeling() {
         return afdeling;
@@ -82,5 +66,10 @@ public class Persoon {
 
     public void setAfdeling(Afdeling afdeling) {
         this.afdeling = afdeling;
+    }
+
+    @Override
+    public String toString() {
+        return naam + " woont in " + woonplaats + " en werkt op afdeling " + afdeling;
     }
 }
