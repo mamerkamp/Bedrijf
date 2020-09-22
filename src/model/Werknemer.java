@@ -34,16 +34,20 @@ public class Werknemer extends Persoon {
         }
     }
 
+    @Override
     public double berekenJaarInkomen() {
-        if (heeftRechtOpBonus()){
-            return maandSalaris * 13;
-        } else {
-            return maandSalaris * 12;
-        }
+
+        return heeftRechtOpBonus() ? maandSalaris * 13: maandSalaris * 12;
+//        if (heeftRechtOpBonus()){
+//            return maandSalaris * 13;
+//        } else {
+//            return maandSalaris * 12;
+//        }
     }
 
+    @Override
     public String toString(){
-        return String.format("%s en is een werknemer %s recht op een bonus.\n",
+        return String.format("%s en is een werknemer %s recht op een bonus.",
                 super.toString(),
                 heeftRechtOpBonus() ? "met" : "zonder");
     }

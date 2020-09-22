@@ -18,10 +18,16 @@ public class Zzper extends Persoon {
         urenGewerkt += uren;
     }
 
+    @Override
     public String toString(){
-        return String.format("%s en is een zzp-er met een uurtarief van %f\n",
+        return String.format("%s en is een zzp-er met een uurtarief van %.2f",
                 super.toString(), uurTarief);
 
+    }
+
+    @Override
+    public double berekenJaarInkomen() {
+        return urenGewerkt * uurTarief;
     }
 
     public double getUurTarief() {

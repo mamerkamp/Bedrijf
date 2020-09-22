@@ -2,6 +2,8 @@ package controller;
 
 import model.Afdeling;
 import model.Persoon;
+import model.Werknemer;
+import model.Zzper;
 
 import java.sql.SQLOutput;
 
@@ -21,17 +23,21 @@ public class BedrijfLauncher {
         afdelingen[3] = new Afdeling("Documentatie", "Gouda");
 
 
-        Persoon baas = new Persoon("Mark", "Den Haag", afdelingen[2]);
-        Persoon medewerker = new Persoon("Caroline", "Delft", afdelingen[1]);
-        Persoon assistent = new Persoon("Klaas");
+        Werknemer baas = new Werknemer("Mark", "Den Haag",  afdelingen[2], 10000.00);
+        Werknemer medewerker = new Werknemer("Caroline", "Delft", afdelingen[1], 4000.00);
+        Zzper assistent = new Zzper("Klaas", "Diemen", afdelingen[3], 50.0);
 
+        assistent.huurIn(160);
         System.out.println("Het aantal personen in het bedrijf is " + Persoon.aantalPersonen);
-        System.out.printf("%s werkt in %s en woont in %s\n", baas.getNaam(), baas.getAfdeling().getAfdelingsPlaats(),
-                baas.getWoonplaats());
-        //System.out.printf("%s werkt op de afdeling %s en verdient %.2f\n", medewerker.getNaam(),
-        //        medewerker.getAfdeling().getAfdelingsNaam(), medewerker.getMaandSalaris());
-        System.out.printf("%s werkt op de afdeling %s en woont in %s", assistent.getNaam(),
-                assistent.getAfdeling().getAfdelingsNaam(), assistent.getWoonplaats());
+        System.out.println();
+        System.out.println(baas);
+        System.out.println(medewerker);
+        System.out.println(assistent);
+
+        System.out.println();
+        System.out.printf("%s verdient %.2f per jaar.\n", baas.getNaam(), baas.berekenJaarInkomen());
+        System.out.printf("%s verdient %.2f per jaar.\n", medewerker.getNaam(), medewerker.berekenJaarInkomen());
+        System.out.printf("%s verdient %.2f per jaar.\n", assistent.getNaam(), assistent.berekenJaarInkomen());
 
 
     }

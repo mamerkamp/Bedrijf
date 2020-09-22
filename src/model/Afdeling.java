@@ -35,6 +35,6 @@ public class Afdeling {
     }
 
     public String toString(){
-        return "afdeling " + afdelingsNaam + " te " + afdelingsPlaats;
+        return afdelingsNaam + " te " + afdelingsPlaats;
     }
 }
