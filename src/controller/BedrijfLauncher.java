@@ -16,8 +16,7 @@ public class BedrijfLauncher {
         afdelingen[2] = "Management";
         afdelingen[3] = "Documentatie";
 
-        System.out.println(Persoon.aantalPersonen);
-
+        System.out.println(Persoon.aantalPersonen)
 
         Persoon baas = new Persoon("Mark", "Den Haag", 10000, afdelingen[2]);
         System.out.println(Persoon.aantalPersonen);
