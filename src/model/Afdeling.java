@@ -33,4 +33,8 @@ public class Afdeling {
     public void setAfdelingsPlaats(String afdelingsPlaats) {
         this.afdelingsPlaats = afdelingsPlaats;
     }
+
+    public String toString(){
+        return "afdeling " + afdelingsNaam + " te " + afdelingsPlaats;
+    }
 }
