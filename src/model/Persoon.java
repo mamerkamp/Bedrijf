@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 /**
  * Author: Mark Amerkamp (markamerkamp@gmail.com)
  * Veel plezier ermee!
@@ -14,12 +16,15 @@ public abstract class Persoon {
     protected String woonplaats;
     protected Afdeling afdeling;
 
+    public ArrayList<Persoon> personen;
+
 
     public Persoon(String naam, String woonplaats, Afdeling afdeling) {
         this.naam = naam;
         this.woonplaats = woonplaats;
         this.afdeling = afdeling;
         this.personeelsNummer = aantalPersonen++;
+        personen = new ArrayList<>();
     }
 
     public Persoon(String naam) {
