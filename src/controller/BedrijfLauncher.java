@@ -23,15 +23,6 @@ public class BedrijfLauncher {
         afdelingen[3] = new Afdeling("Documentatie", "Gouda");
 
 
-//        Werknemer baas = new Werknemer("Mark", "Den Haag",  afdelingen[2], 10000.00);
-//        Werknemer medewerker = new Werknemer("Caroline", "Delft", afdelingen[1], 4000.00);
-//        Zzper assistent = new Zzper("Klaas", "Diemen", afdelingen[3], 50.0);
-//        Zzper projectleider = new Zzper("Ronald", "Zaandam", afdelingen[0],80.00 );
-
-//        assistent.huurIn(160);
-//        projectleider.huurIn(320);
-
-
         ArrayList<Persoon> personen = new ArrayList<>();
 
         personen.add(new Werknemer("Mark", "Den Haag", afdelingen[2],10000 ));
@@ -45,13 +36,6 @@ public class BedrijfLauncher {
             }
         }
 
-
-//        Persoon[] personen = new Persoon[4];
-//        personen[0] = baas;
-//        personen[1] = medewerker;
-//        personen[2] = assistent;
-//        personen[3] = projectleider;
-//
         for (int i = 0; i < personen.size(); i++) {
             toonJaarInkomen(personen.get(i));
         }
