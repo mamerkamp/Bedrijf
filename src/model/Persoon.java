@@ -4,7 +4,7 @@ package model;
  * Author: Mark Amerkamp (markamerkamp@gmail.com)
  * Veel plezier ermee!
  */
-public class Persoon {
+public abstract class Persoon {
     final static double GRENSWAARDE_BONUS = 4500.00;
 
     protected static String DEFAULTWAARDE_NAAM = "Onbekend";
@@ -30,9 +30,8 @@ public class Persoon {
         this(DEFAULTWAARDE_NAAM);
     }
 
-    public double berekenJaarInkomen() {
-        return 0;
-    }
+    public abstract double berekenJaarInkomen();
+
 
     public int getPersoneelsNummer() {
         return personeelsNummer;
