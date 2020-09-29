@@ -1,11 +1,9 @@
 package controller;
 
-import model.Afdeling;
-import model.Persoon;
-import model.Werknemer;
-import model.Zzper;
+import model.*;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 
 /**
@@ -29,15 +27,23 @@ public class BedrijfLauncher {
         personen.add(new Werknemer("Angelique", "Rotterdam", afdelingen[2], 5000));
         personen.add(new Werknemer("Caroline", "Delft,", afdelingen[1], 4000 ));
         personen.add(new Zzper("Klaas","Diemen", afdelingen[3], 50.00));
+        personen.add(new Vrijwilliger("Ambi", "Amsterdam", afdelingen[0]));
+        personen.add(new Vrijwilliger("Naledi", "Gaborone", afdelingen[1]));
+        personen.add(new Vrijwilliger("Ceren", "Istanboel", afdelingen[2]));
+        personen.add(new Vrijwilliger("Haining", "Shaoxing", afdelingen[3]));
 
         for (Persoon persoon : personen) {
             if(persoon instanceof Zzper) {
                 ((Zzper) persoon).huurIn(320);
             }
+            if(persoon instanceof Vrijwilliger) {
+                ((Vrijwilliger) persoon).huurIn(160);
+            }
         }
-
-        for (int i = 0; i < personen.size(); i++) {
-            toonJaarInkomen(personen.get(i));
+        Collections.sort(personen);
+        for (Persoon persoon : personen) {
+            System.out.println(persoon);
+            toonJaarInkomen(persoon);
         }
     }
 

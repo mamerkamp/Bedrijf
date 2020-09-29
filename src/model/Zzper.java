@@ -4,7 +4,7 @@ package model;
  * Author: Mark Amerkamp (markamerkamp@gmail.com)
  * Veel plezier ermee!
  */
-public class Zzper extends Persoon {
+public class Zzper extends Persoon implements Oproepbaar{
     private double uurTarief;
     private int urenGewerkt;
 
@@ -14,6 +14,7 @@ public class Zzper extends Persoon {
         this.urenGewerkt = 0;
     }
 
+    @Override
     public void huurIn(int uren) {
         urenGewerkt += uren;
     }

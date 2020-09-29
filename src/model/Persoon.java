@@ -1,12 +1,14 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 /**
  * Author: Mark Amerkamp (markamerkamp@gmail.com)
  * Veel plezier ermee!
  */
-public abstract class Persoon {
+public abstract class Persoon implements Comparable<Persoon> {
     final static double GRENSWAARDE_BONUS = 4500.00;
 
     protected static String DEFAULTWAARDE_NAAM = "Onbekend";
@@ -74,5 +76,10 @@ public abstract class Persoon {
     @Override
     public String toString() {
         return naam + " woont in " + woonplaats + " en werkt op afdeling " + afdeling;
+    }
+
+    @Override
+    public int compareTo(Persoon persoon) {
+        return this.naam.compareTo(persoon.naam);
     }
 }
