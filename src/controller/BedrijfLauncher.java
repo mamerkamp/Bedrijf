@@ -27,7 +27,7 @@ public class BedrijfLauncher {
 
         personen.add(new Werknemer("Mark", "Den Haag", afdelingen[2],10000 ));
         personen.add(new Werknemer("Angelique", "Rotterdam", afdelingen[2], 5000));
-        personen.add(new Werknemer("Carlone", "Delft,", afdelingen[1], 4000 ));
+        personen.add(new Werknemer("Caroline", "Delft,", afdelingen[1], 4000 ));
         personen.add(new Zzper("Klaas","Diemen", afdelingen[3], 50.00));
 
         for (Persoon persoon : personen) {

@@ -23,7 +23,7 @@ public abstract class Persoon {
         this.naam = naam;
         this.woonplaats = woonplaats;
         this.afdeling = afdeling;
-        this.personeelsNummer = aantalPersonen++;
+        this.personeelsNummer = ++aantalPersonen;
         personen = new ArrayList<>();
     }
 
