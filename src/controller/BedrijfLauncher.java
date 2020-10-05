@@ -18,7 +18,25 @@ public class BedrijfLauncher {
         DBaccess dBaccess = new DBaccess("bedrijf", "userBedrijf", "userBedrijfPW");
         dBaccess.openConnection();
         AfdelingDAO afdelingDAO = new AfdelingDAO(dBaccess);
-        afdelingDAO.slaAfdelingOp(new Afdeling("H ER", "Snits"));
+//        afdelingDAO.slaAfdelingOp(new Afdeling("Sales", "Sneek"));
+
+        afdelingDAO.geefAfdelingenMetPlaats("Hilversum");
+
+
+//            String sql = "SELECT * FROM afdeling WHERE afdelingsplaats = 'Hilversum';";
+//            try {
+//                PreparedStatement preparedStatement = connection.prepareStatement(sql);
+//                ResultSet resultSet = preparedStatement.executeQuery();
+//
+//                while(resultSet.next()) {
+//                    String naamAfdeling = resultSet.getString("afdelingsnaam");
+//                    String plaatsAfdeling = resultSet.getString("afdelingsplaats");
+//                    System.out.println(new Afdeling(naamAfdeling, plaatsAfdeling));
+//                }
+//                connection.close();
+//            } catch (SQLException sqlfout) {
+//                System.out.println(sqlfout);
+//            }
         }
     }
 

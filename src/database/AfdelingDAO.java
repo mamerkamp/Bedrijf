@@ -3,6 +3,7 @@ package database;
 import model.Afdeling;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
@@ -35,5 +36,26 @@ public class AfdelingDAO {
             System.out.println("Succesvol ingeladen");
 
         }
+    }
+
+    public void geefAfdelingenMetPlaats(String afdelingplaats) {
+
+        String sql2 = "SELECT * FROM afdeling WHERE afdelingsplaats = (?);";
+            try {
+                PreparedStatement preparedStatement = dBaccess.getConnection().prepareStatement(sql2);
+
+                preparedStatement.setString(1, afdelingplaats);
+                ResultSet resultSet = preparedStatement.executeQuery();
+
+                while(resultSet.next()) {
+                    String naamAfdeling = resultSet.getString("afdelingsnaam");
+                    String plaatsAfdeling = resultSet.getString("afdelingsplaats");
+                    System.out.println(new Afdeling(naamAfdeling, plaatsAfdeling));
+                }
+
+            } catch (SQLException sqlfout) {
+                System.out.println(sqlfout);
+            }
+
     }
 }
