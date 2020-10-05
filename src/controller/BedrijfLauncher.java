@@ -1,12 +1,10 @@
 package controller;
 
+import database.AfdelingDAO;
+import database.DBaccess;
 import model.*;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.*;
+import java.sql.*;
 
 
 /**
@@ -17,84 +15,93 @@ public class BedrijfLauncher {
 
     public static void main(String[] args) {
 
-
-        ArrayList<Afdeling> afdelingen = new ArrayList<>();
-        File afdelingenBestand = new File("resources/Afdelingen.txt");
-
-        Scanner invoer = null;
-        try{
-            invoer = new Scanner(afdelingenBestand);
-            while (invoer.hasNextLine()) {
-                String afdelingNaam = invoer.nextLine();
-                String afdelingPlaats = invoer.nextLine();
-                afdelingen.add(new Afdeling(afdelingNaam, afdelingPlaats));
-            }
+        DBaccess dBaccess = new DBaccess("bedrijf", "userBedrijf", "userBedrijfPW");
+        dBaccess.openConnection();
+        AfdelingDAO afdelingDAO = new AfdelingDAO(dBaccess);
+        afdelingDAO.slaAfdelingOp(new Afdeling("H ER", "Snits"));
         }
-        catch (FileNotFoundException e) {
-                System.out.println("Het bestand is niet gevonden");
-        } finally {
-            if (invoer != null) {
-                invoer.close();
-            }
-        }
+    }
 
 
-        ArrayList<Persoon> personen = new ArrayList<>();
-        File personenBestand = new File("resources/Personen.csv");
 
-        Scanner invoerPersonen = null;
-        try{
-            invoerPersonen = new Scanner(personenBestand);
-            while (invoerPersonen.hasNextLine()) {
-                String[] regelArray = invoerPersonen.nextLine().split(",");
-                String type = regelArray[0];
-                String naam = regelArray[1];
-                String woonplaats = regelArray[3];
-                int index = Integer.parseInt(regelArray[3]);
-                double geld = Double.parseDouble(regelArray[4]);
 
-                switch (type) {
-                    case "Werknemer":
-                        personen.add(new Werknemer(naam, woonplaats, afdelingen.get(index), geld));
-                        break;
-                    case "Zzper":
-                        personen.add(new Zzper(naam, woonplaats, afdelingen.get(index), geld));
-                        break;
-                    case "Vrijwilliger":
-                        personen.add(new Vrijwilliger(naam, woonplaats, afdelingen.get(index)));
-                        break;
-                }
-            }
-        }
-        catch (FileNotFoundException e) {
-            System.out.println("Het bestand is niet gevonden");
-        } finally {
-            if (invoerPersonen != null) {
-                invoerPersonen.close();
-            }
-        }
-
-        Collections.sort(personen);
-        for (Persoon s : personen) {
-            System.out.println(s);
-        }
-
-        File uitvoerBestand = new File("resources/PersonenPerAfdeling.txt");
-        try {
-            PrintWriter writer = new PrintWriter(uitvoerBestand);
-            for (Afdeling afdeling : afdelingen) {
-                writer.println("Afdeling: " + afdeling.getAfdelingsNaam());
-                for (Persoon persoon : personen) {
-                    if (persoon.getAfdeling() == afdeling) {
-                        writer.println("-- " + persoon);
-                    }
-                }
-                writer.println();
-            }
-            writer.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("Bestand kon niet worden aangemaakt");
-        }
+//        ArrayList<Afdeling> afdelingen = new ArrayList<>();
+//        File afdelingenBestand = new File("resources/Afdelingen.txt");
+//
+//        Scanner invoer = null;
+//        try{
+//            invoer = new Scanner(afdelingenBestand);
+//            while (invoer.hasNextLine()) {
+//                String afdelingNaam = invoer.nextLine();
+//                String afdelingPlaats = invoer.nextLine();
+//                afdelingen.add(new Afdeling(afdelingNaam, afdelingPlaats));
+//            }
+//        }
+//        catch (FileNotFoundException e) {
+//                System.out.println("Het bestand is niet gevonden");
+//        } finally {
+//            if (invoer != null) {
+//                invoer.close();
+//            }
+//        }
+//
+//
+//        ArrayList<Persoon> personen = new ArrayList<>();
+//        File personenBestand = new File("resources/Personen.csv");
+//
+//        Scanner invoerPersonen = null;
+//        try{
+//            invoerPersonen = new Scanner(personenBestand);
+//            while (invoerPersonen.hasNextLine()) {
+//                String[] regelArray = invoerPersonen.nextLine().split(",");
+//                String type = regelArray[0];
+//                String naam = regelArray[1];
+//                String woonplaats = regelArray[3];
+//                int index = Integer.parseInt(regelArray[3]);
+//                double geld = Double.parseDouble(regelArray[4]);
+//
+//                switch (type) {
+//                    case "Werknemer":
+//                        personen.add(new Werknemer(naam, woonplaats, afdelingen.get(index), geld));
+//                        break;
+//                    case "Zzper":
+//                        personen.add(new Zzper(naam, woonplaats, afdelingen.get(index), geld));
+//                        break;
+//                    case "Vrijwilliger":
+//                        personen.add(new Vrijwilliger(naam, woonplaats, afdelingen.get(index)));
+//                        break;
+//                }
+//            }
+//        }
+//        catch (FileNotFoundException e) {
+//            System.out.println("Het bestand is niet gevonden");
+//        } finally {
+//            if (invoerPersonen != null) {
+//                invoerPersonen.close();
+//            }
+//        }
+//
+//        Collections.sort(personen);
+//        for (Persoon s : personen) {
+//            System.out.println(s);
+//        }
+//
+//        File uitvoerBestand = new File("resources/PersonenPerAfdeling.txt");
+//        try {
+//            PrintWriter writer = new PrintWriter(uitvoerBestand);
+//            for (Afdeling afdeling : afdelingen) {
+//                writer.println("Afdeling: " + afdeling.getAfdelingsNaam());
+//                for (Persoon persoon : personen) {
+//                    if (persoon.getAfdeling() == afdeling) {
+//                        writer.println("-- " + persoon);
+//                    }
+//                }
+//                writer.println();
+//            }
+//            writer.close();
+//        } catch (FileNotFoundException e) {
+//            System.out.println("Bestand kon niet worden aangemaakt");
+//        }
 
 
 
@@ -167,5 +174,5 @@ public class BedrijfLauncher {
 //    public static void toonJaarInkomen(Persoon persoon) {
 //        System.out.printf("%s verdient %.2f per jaar\n", persoon.getNaam(), persoon.berekenJaarInkomen());
 //    }
-    }
-}
+
+
