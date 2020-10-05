@@ -1,0 +1,19 @@
+Afdeling: Uitvoering
+-- Ambi woont in 0 en werkt op afdeling Uitvoering te Hilversum en is een vrijwilliger
+-- Anne woont in 0 en werkt op afdeling Uitvoering te Hilversum en is een zzp-er met een uurtarief van 40,00
+-- Jannie woont in 0 en werkt op afdeling Uitvoering te Hilversum en is een zzp-er met een uurtarief van 60,00
+-- Ronald woont in 0 en werkt op afdeling Uitvoering te Hilversum en is een zzp-er met een uurtarief van 80,00
+
+Afdeling: Support
+-- Caroline woont in 1 en werkt op afdeling Support te Amsterdam en is een werknemer zonder recht op een bonus.
+-- Naledi woont in 1 en werkt op afdeling Support te Amsterdam en is een vrijwilliger
+
+Afdeling: Management
+-- Angelique woont in 2 en werkt op afdeling Management te Almere en is een werknemer met recht op een bonus.
+-- Ceren woont in 2 en werkt op afdeling Management te Almere en is een vrijwilliger
+-- Mark woont in 2 en werkt op afdeling Management te Almere en is een werknemer met recht op een bonus.
+
+Afdeling: Documentatie
+-- Haining woont in 3 en werkt op afdeling Documentatie te Gouda en is een vrijwilliger
+-- Klaas woont in 3 en werkt op afdeling Documentatie te Gouda en is een zzp-er met een uurtarief van 50,00
+
